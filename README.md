@@ -1,7 +1,7 @@
 # Cellular Automata Simulator
 ## Explore the world of cellular automata with a customizable simulation of cells that evolve immense complexity based on a finite set of simple rules through both 1-D Generation Stacking and 2-D Game of Life.
 
-![1d](images/1d.png)
+![1d](images/1d.PNG)
 
 ### What You Can Do:
 
