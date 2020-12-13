@@ -19,13 +19,13 @@ namespace cas {
             for (int i = 0; i < num_cells_in_gen; ++i) {
                 i == floor(num_cells_in_gen / 2) ? cells.emplace_back(Cell(true)) : cells.emplace_back(Cell(false));
             }
-            //1 means random: some alive, some dead    
+        //1 means random: some alive, some dead    
         } else if (starting_gen_value == 1) {
             for (int i = 0; i < num_cells_in_gen; ++i) {
                 int alive = rand() % 2;
                 alive == 1 ? cells.emplace_back(Cell(true)) : cells.emplace_back(Cell(false));
             }
-            //2 means alternating: dead->alive->dead->alive->etc.    
+        //2 means alternating: dead->alive->dead->alive->etc.    
         } else if (starting_gen_value == 2) {
             for (int i = 0; i < num_cells_in_gen; ++i) {
                 i % 2 == 0 ? cells.emplace_back(Cell(true)) : cells.emplace_back(Cell(false));

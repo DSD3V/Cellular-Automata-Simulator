@@ -64,7 +64,7 @@ namespace cas {
                 board_.push_back(cells);
                 prev_board_.push_back(cells);
             }
-            //1 means random: some alive, some dead    
+        //1 means random: some alive, some dead    
         } else if (starting_selection_ == 1) {
             for (int y = 0; y < num_rows_per_col_; ++y) {
                 vector<Cell> cells;
@@ -75,7 +75,7 @@ namespace cas {
                 board_.push_back(cells);
                 prev_board_.push_back(cells);
             }
-            //else custom, so user will draw board (all start dead)    
+        //else custom, so user will draw board (all start dead)    
         } else {
             for (int y = 0; y < num_rows_per_col_; ++y) {
                 vector<Cell> cells;
@@ -98,7 +98,7 @@ namespace cas {
                     prev_board_[i].pop_back();
                 }
             }
-            //add cells to each row of board; randomly alive or dead
+        //add cells to each row of board; randomly alive or dead
         } else {
             size_t num_to_add = num_cells_per_row - num_cells_per_row_;
             for (size_t i = 0; i < board_.size(); ++i) {

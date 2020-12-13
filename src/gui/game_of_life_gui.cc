@@ -6,12 +6,12 @@ namespace cas {
     GameOfLifeGui::GameOfLifeGui(ColorA& live_cell_color, ColorA& dead_cell_color, int& num_cells_per_row, int num_rows_per_col,
                                  int starting_board_selection, float top_left_cell_width_pct, float top_left_cell_height_pct,
                                  int min_cells_per_row, int max_cells_per_row) :
-            live_cell_color_(&live_cell_color), dead_cell_color_(&dead_cell_color),
-            live_cell_cycle_hue_(0.5f), dead_cell_cycle_hue_(0),
-            num_cells_per_row_cycle_(num_cells_per_row), min_cells_per_row_(min_cells_per_row), max_cells_per_row_(max_cells_per_row),
-            top_left_cell_width_pct_(top_left_cell_width_pct), top_left_cell_height_pct_(top_left_cell_height_pct),
-            game_of_life_(num_cells_per_row, num_rows_per_col, starting_board_selection),
-            frame_count_(0) {
+    live_cell_color_(&live_cell_color), dead_cell_color_(&dead_cell_color),
+    live_cell_cycle_hue_(0.5f), dead_cell_cycle_hue_(0),
+    num_cells_per_row_cycle_(num_cells_per_row), min_cells_per_row_(min_cells_per_row), max_cells_per_row_(max_cells_per_row),
+    top_left_cell_width_pct_(top_left_cell_width_pct), top_left_cell_height_pct_(top_left_cell_height_pct),
+    game_of_life_(num_cells_per_row, num_rows_per_col, starting_board_selection),
+    frame_count_(0) {
         srand((unsigned) time(nullptr));
         live_cell_cycle_color_ = Color(CM_HSV, live_cell_cycle_hue_, 1, 1);
         dead_cell_cycle_color_ = Color(CM_HSV, dead_cell_cycle_hue_, 1, 1);
@@ -20,7 +20,7 @@ namespace cas {
     void GameOfLifeGui::UpdateBoard(const bool is_paused, const bool is_reset, const bool cells_being_revived_or_killed, const bool is_in_cycle_mode) {
         if (is_in_cycle_mode) {
             if (!is_paused) {
-                /* Update Cycle Colors */
+                //Update Cycle Colors
                 live_cell_cycle_hue_ += 0.008f;
                 dead_cell_cycle_hue_ += 0.008f;
                 if (live_cell_cycle_hue_ >= 0.99f) live_cell_cycle_hue_ = 0;
@@ -30,7 +30,7 @@ namespace cas {
             }
             if (!is_paused && !is_reset && !cells_being_revived_or_killed) {
                 frame_count_++;
-                /* Update Number of Cells per Row */
+                //Update Number of Cells per Row
                 if (frame_count_ == 30) {
                     num_cells_per_row_cycle_ = rand() % ((max_cells_per_row_ - 10) - (min_cells_per_row_ + 10) + 1) + (min_cells_per_row_ + 10);
                     game_of_life_.UpdateNumCellsPerRow(num_cells_per_row_cycle_);

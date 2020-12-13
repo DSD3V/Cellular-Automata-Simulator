@@ -3,49 +3,49 @@
 namespace cas {
     CasApp::CasApp() :
     //Initialize booleans
-            show_main_screen_(true),
-            show_gen_stacking_(false),
-            show_game_of_life_(false),
-            main_screen_btn1_is_pressed_(false), main_screen_btn2_is_pressed_(false),
-            menu_btn_is_pressed_(false),
-            gen_stacking_pause_btn_is_pressed_(false), game_of_life_pause_btn_is_pressed_(false),
-            gen_stacking_reset_btn_is_pressed_(false), game_of_life_reset_btn_is_pressed_(false),
-            gen_stacking_settings_btn_is_pressed_(false), game_of_life_settings_btn_is_pressed_(false),
-            gen_stacking_cycle_btn_is_pressed_(false), game_of_life_cycle_btn_is_pressed_(false),
-            gen_stacking_is_paused_(false), game_of_life_is_paused_(false),
-            gen_stacking_is_reset_(true), game_of_life_is_reset_(true),
-            gen_stacking_is_showing_settings_(true), game_of_life_is_showing_settings_(true),
-            cells_being_revived_or_killed_(false),
-            gen_stacking_is_in_cycle_mode_(false), game_of_life_is_in_cycle_mode_(false),
+    show_main_screen_(true),
+    show_gen_stacking_(false),
+    show_game_of_life_(false),
+    main_screen_btn1_is_pressed_(false), main_screen_btn2_is_pressed_(false),
+    menu_btn_is_pressed_(false),
+    gen_stacking_pause_btn_is_pressed_(false), game_of_life_pause_btn_is_pressed_(false),
+    gen_stacking_reset_btn_is_pressed_(false), game_of_life_reset_btn_is_pressed_(false),
+    gen_stacking_settings_btn_is_pressed_(false), game_of_life_settings_btn_is_pressed_(false),
+    gen_stacking_cycle_btn_is_pressed_(false), game_of_life_cycle_btn_is_pressed_(false),
+    gen_stacking_is_paused_(false), game_of_life_is_paused_(false),
+    gen_stacking_is_reset_(true), game_of_life_is_reset_(true),
+    gen_stacking_is_showing_settings_(true), game_of_life_is_showing_settings_(true),
+    cells_being_revived_or_killed_(false),
+    gen_stacking_is_in_cycle_mode_(false), game_of_life_is_in_cycle_mode_(false),
 
-            //Initialize button colors
-            kDefaultBtnColor(.65f, .65f, .65f), kHoverBtnColor(1, 1, 1),
-            main_screen_btn1_color_(kDefaultBtnColor), main_screen_btn2_color_(kDefaultBtnColor),
-            menu_btn_color_(kDefaultBtnColor),
-            gen_stacking_pause_btn_color_(kDefaultBtnColor), game_of_life_pause_btn_color_(kDefaultBtnColor),
-            gen_stacking_reset_btn_color_(kDefaultBtnColor), game_of_life_reset_btn_color_(kDefaultBtnColor),
-            gen_stacking_settings_btn_color_(kDefaultBtnColor), game_of_life_settings_btn_color_(kDefaultBtnColor),
-            gen_stacking_cycle_btn_color_(kDefaultBtnColor), game_of_life_cycle_btn_color_(kDefaultBtnColor),
+    //Initialize button colors
+    kDefaultBtnColor(.65f, .65f, .65f), kHoverBtnColor(1, 1, 1),
+    main_screen_btn1_color_(kDefaultBtnColor), main_screen_btn2_color_(kDefaultBtnColor),
+    menu_btn_color_(kDefaultBtnColor),
+    gen_stacking_pause_btn_color_(kDefaultBtnColor), game_of_life_pause_btn_color_(kDefaultBtnColor),
+    gen_stacking_reset_btn_color_(kDefaultBtnColor), game_of_life_reset_btn_color_(kDefaultBtnColor),
+    gen_stacking_settings_btn_color_(kDefaultBtnColor), game_of_life_settings_btn_color_(kDefaultBtnColor),
+    gen_stacking_cycle_btn_color_(kDefaultBtnColor), game_of_life_cycle_btn_color_(kDefaultBtnColor),
 
-            //Initialize percentages used for locations of buttons / subtitle / cells
-            kMenuX1WidthPct(.04f), kMenuX2WidthPct(.15f), kMenuY1HeightPct(.03f), kMenuY2HeightPct(.10f),
-            kPauseX1WidthPct(.67f), kPauseX2WidthPct(.75f), kPauseY1HeightPct(.12f), kPauseY2HeightPct(.18f),
-            kResetX1WidthPct(.77f), kResetX2WidthPct(.84f), kResetY1HeightPct(.12f), kResetY2HeightPct(.18f),
-            kSettingsX1WidthPct(.86f), kSettingsX2WidthPct(.99f), kSettingsY1HeightPct(.10f), kSettingsY2HeightPct(.18f),
-            kCycleX1WidthPct(.73f), kCycleX2WidthPct(.88f), kCycleY1HeightPct(.02f), kCycleY2HeightPct(.09f),
-            kSubtitleHeightPct(.09f),
-            top_left_cell_width_pct_(0), top_left_cell_height_pct_(.20f),
+    //Initialize percentages used for locations of buttons / subtitle / cells
+    kMenuX1WidthPct(.04f), kMenuX2WidthPct(.15f), kMenuY1HeightPct(.03f), kMenuY2HeightPct(.10f),
+    kPauseX1WidthPct(.67f), kPauseX2WidthPct(.75f), kPauseY1HeightPct(.12f), kPauseY2HeightPct(.18f),
+    kResetX1WidthPct(.77f), kResetX2WidthPct(.84f), kResetY1HeightPct(.12f), kResetY2HeightPct(.18f),
+    kSettingsX1WidthPct(.86f), kSettingsX2WidthPct(.99f), kSettingsY1HeightPct(.10f), kSettingsY2HeightPct(.18f),
+    kCycleX1WidthPct(.73f), kCycleX2WidthPct(.88f), kCycleY1HeightPct(.02f), kCycleY2HeightPct(.09f),
+    kSubtitleHeightPct(.09f),
+    top_left_cell_width_pct_(0), top_left_cell_height_pct_(.20f),
 
-            //Initialize default settings
-            settings_box_dimensions_(glm::vec2(370, 325)),
-            ruleset_(126),
-            gen_stacking_live_cell_color_(ColorA(0, 0, 1)), gen_stacking_dead_cell_color_(ColorA(0, 0, .16f)),
-            game_of_life_live_cell_color_(ColorA(0, 0, 1)), game_of_life_dead_cell_color_(ColorA(0, 0, .16f)),
-            num_cells_per_gen_(51), num_cells_per_row_(51), num_rows_per_col_(100),
-            min_cells_per_gen_(10), max_cells_per_gen_(100), min_cells_per_row_(10), max_cells_per_row_(100),
-            starting_gen_options_({"Default (one live cell in the center)", "Random", "Alternating (dead->alive->dead->alive->etc.)"}),
-            starting_board_options_({"Default (square)", "Random", "Custom (draw your own)"}),
-            starting_gen_selection_(0), starting_board_selection_(0) {
+    //Initialize default settings
+    settings_box_dimensions_(glm::vec2(370, 325)),
+    ruleset_(126),
+    gen_stacking_live_cell_color_(ColorA(0, 0, 1)), gen_stacking_dead_cell_color_(ColorA(0, 0, .16f)),
+    game_of_life_live_cell_color_(ColorA(0, 0, 1)), game_of_life_dead_cell_color_(ColorA(0, 0, .16f)),
+    num_cells_per_gen_(51), num_cells_per_row_(51), num_rows_per_col_(100),
+    min_cells_per_gen_(10), max_cells_per_gen_(100), min_cells_per_row_(10), max_cells_per_row_(100),
+    starting_gen_options_({"Default (one live cell in the center)", "Random", "Alternating (dead->alive->dead->alive->etc.)"}),
+    starting_board_options_({"Default (square)", "Random", "Custom (draw your own)"}),
+    starting_gen_selection_(0), starting_board_selection_(0) {
         //Construct GUI objects with default values
         gen_stacking_gui_ = GenStackingGui(ruleset_, gen_stacking_live_cell_color_, gen_stacking_dead_cell_color_, num_cells_per_gen_,
                                            starting_gen_selection_, top_left_cell_width_pct_, top_left_cell_height_pct_, min_cells_per_gen_, max_cells_per_gen_);
@@ -83,7 +83,7 @@ namespace cas {
             DrawTitle(title_font);
             main_screen_.DrawMainScreen(gui_width, gui_height, main_screen_btn1_color_, main_screen_btn2_color_);
 
-            //Draw Gen Stacking    
+        //Draw Gen Stacking    
         } else if (show_gen_stacking_) {
             main_screen_.Clear();
             DrawTitle(title_font);
@@ -96,7 +96,7 @@ namespace cas {
             gen_stacking_is_showing_settings_ ? settings_->show() : settings_->hide();
             settings_->draw();
 
-            //Draw Game of Life    
+        //Draw Game of Life    
         } else if (show_game_of_life_) {
             main_screen_.Clear();
             DrawTitle(title_font);
@@ -230,7 +230,7 @@ namespace cas {
     }
 
     void CasApp::SetGenStackingSettings() {
-        //Setup parameters for Gen Stacking
+        //Setup simulation parameters for Gen Stacking
         settings_->clear();
 
         settings_->addParam("Ruleset (0 - 255)", &ruleset_).min(0).max(255).step(1).updateFn([this] {
@@ -269,7 +269,7 @@ namespace cas {
     }
 
     void CasApp::SetGameOfLifeSettings() {
-        //Setup parameters for Game of Life
+        //Setup simulation parameters for Game of Life
         settings_->clear();
 
         settings_->addParam("Live Cell Color", &game_of_life_live_cell_color_).updateFn([this] {

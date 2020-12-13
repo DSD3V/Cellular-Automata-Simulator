@@ -5,13 +5,13 @@ using namespace ci;
 namespace cas {
     GenStackingGui::GenStackingGui(int ruleset, ColorA& live_cell_color, ColorA& dead_cell_color, int& num_cells_per_gen,
                                    int starting_gen_selection, float top_left_cell_width_pct, float top_left_cell_height_pct, int min_cells_per_gen, int max_cells_per_gen) :
-            live_cell_color_(&live_cell_color), dead_cell_color_(&dead_cell_color),
-            live_cell_cycle_hue_(0.5f), dead_cell_cycle_hue_(0),
-            top_left_cell_width_pct_(top_left_cell_width_pct), top_left_cell_height_pct_(top_left_cell_height_pct),
-            num_cells_per_gen_(&num_cells_per_gen),
-            num_cells_per_gen_cycle_(num_cells_per_gen), min_cells_per_gen_(min_cells_per_gen), max_cells_per_gen_(max_cells_per_gen),
-            gen_stacking_(ruleset, num_cells_per_gen, starting_gen_selection),
-            frame_count_(0) {
+    live_cell_color_(&live_cell_color), dead_cell_color_(&dead_cell_color),
+    live_cell_cycle_hue_(0.5f), dead_cell_cycle_hue_(0),
+    top_left_cell_width_pct_(top_left_cell_width_pct), top_left_cell_height_pct_(top_left_cell_height_pct),
+    num_cells_per_gen_(&num_cells_per_gen),
+    num_cells_per_gen_cycle_(num_cells_per_gen), min_cells_per_gen_(min_cells_per_gen), max_cells_per_gen_(max_cells_per_gen),
+    gen_stacking_(ruleset, num_cells_per_gen, starting_gen_selection),
+    frame_count_(0) {
         srand((unsigned) time(nullptr));
         live_cell_cycle_color_= Color(CM_HSV,live_cell_cycle_hue_, 1, 1);
         dead_cell_cycle_color_ = Color(CM_HSV, dead_cell_cycle_hue_, 1, 1);
@@ -20,7 +20,7 @@ namespace cas {
     void GenStackingGui::UpdateGenerations(const int gui_width, const int gui_height, const bool is_paused, const bool is_reset, const bool is_in_cycle_mode) {
         if (is_in_cycle_mode) {
             if (!is_paused) {
-                /* Update Cycle Colors */
+                //Update Cycle Colors
                 live_cell_cycle_hue_ += 0.006f;
                 dead_cell_cycle_hue_ += 0.006f;
                 if (live_cell_cycle_hue_ >= 0.99f) live_cell_cycle_hue_ = 0;
@@ -33,7 +33,7 @@ namespace cas {
                 frame_count_++;
                 int max_gens = static_cast<int>((gui_height - (top_left_cell_height_pct_ * gui_height)) / static_cast<float>(gui_width / num_cells_per_gen_cycle_)) + 2;
 
-                /* Update Cycle Ruleset and Number of Cells per Generation */
+                //Update Cycle Ruleset and Number of Cells per Generation
                 if (frame_count_ == 50) {
                     int ruleset = rand() % 256;
                     gen_stacking_.SetRuleset(ruleset);
