@@ -30,6 +30,6 @@
 - Download Visual Studio Community 2015 with Update 3 at https://my.visualstudio.com/Downloads?q=visual%20studio%202015&wt.mc_id=o~msft~vscom~older-downloads
 - When downloading, select custom installation and check the box for "Common Tools for Visual C++ 2015"
 - Download Cinder for Visual C++ 2015 at https://libcinder.org/download
-- Once these are both downloaded, open this repository in a code editor that supports CMake, build the project, and then run it
+- Once these are both downloaded, open this repository in a code editor that supports CMake, build the project, and then run the "cas-gui" configuration OR type "cas-gui.exe" in the terminal
 
 ##### Note: This program does not support MacOS, Linux, or Mobile.
