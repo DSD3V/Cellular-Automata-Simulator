@@ -29,10 +29,10 @@ namespace cas {
 
     //Initialize percentages used for locations of buttons / subtitle / cells
     kMenuX1WidthPct(.04f), kMenuX2WidthPct(.15f), kMenuY1HeightPct(.03f), kMenuY2HeightPct(.10f),
-    kPauseX1WidthPct(.67f), kPauseX2WidthPct(.75f), kPauseY1HeightPct(.12f), kPauseY2HeightPct(.18f),
-    kResetX1WidthPct(.77f), kResetX2WidthPct(.84f), kResetY1HeightPct(.12f), kResetY2HeightPct(.18f),
-    kSettingsX1WidthPct(.86f), kSettingsX2WidthPct(.99f), kSettingsY1HeightPct(.10f), kSettingsY2HeightPct(.18f),
-    kCycleX1WidthPct(.73f), kCycleX2WidthPct(.88f), kCycleY1HeightPct(.02f), kCycleY2HeightPct(.09f),
+    kPauseX1WidthPct(.65f), kPauseX2WidthPct(.72f), kPauseY1HeightPct(.12f), kPauseY2HeightPct(.19f),
+    kResetX1WidthPct(.73f), kResetX2WidthPct(.79f), kResetY1HeightPct(.12f), kResetY2HeightPct(.19f),
+    kSettingsX1WidthPct(.80f), kSettingsX2WidthPct(0.99f), kSettingsY1HeightPct(.099f), kSettingsY2HeightPct(.19f),
+    kCycleX1WidthPct(.73f), kCycleX2WidthPct(.88f), kCycleY1HeightPct(.02f), kCycleY2HeightPct(.08f),
     kSubtitleHeightPct(.09f),
     top_left_cell_width_pct_(0), top_left_cell_height_pct_(.20f),
 
@@ -177,15 +177,15 @@ namespace cas {
         std::string btn_string, note_string;
         if (is_showing_settings) {
             btn_string = "Close Settings";
-            note_string = "    If already closed, toggle \n button in bottom left corner";
+            note_string = "    (If already closed, toggle \n button in bottom left corner)";
             gl::drawStringCentered(btn_string,
                                    glm::vec2(((gui_width * kSettingsX1WidthPct) + (gui_width * kSettingsX2WidthPct)) / 2,
                                              (((gui_height * kSettingsY1HeightPct) + (gui_height * kSettingsY2HeightPct)) / 2) - 31),
                                    btn_color, btn_font);
             gl::drawStringCentered(note_string,
                                    glm::vec2(((gui_width * kSettingsX1WidthPct) + (gui_width * kSettingsX2WidthPct)) / 2,
-                                             (((gui_height * kSettingsY1HeightPct) + (gui_height * kSettingsY2HeightPct)) / 2) - 2),
-                                   btn_color, Font("Roboto", (gui_width + gui_height) * .008f));
+                                             (((gui_height * kSettingsY1HeightPct) + (gui_height * kSettingsY2HeightPct)) / 2) - 5),
+                                   btn_color,  btn_font);
         } else {
             btn_string = "Open Settings";
             gl::drawStringCentered(btn_string,
